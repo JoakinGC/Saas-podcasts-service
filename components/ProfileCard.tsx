@@ -55,11 +55,11 @@ const ProfileCard = ({
               height={15}
               alt="verified"
             />
-            <h2 className="text-14 font-medium text-white-2">
+            <h2 className="text-14 font-medium text-black-2 dark:text-white-2">
               Verified Creator
             </h2>
           </figure>
-          <h1 className="text-32 font-extrabold tracking-[-0.32px] text-white-1">
+          <h1 className="text-32 font-extrabold tracking-[-0.32px] text-black-1 dark:text-white-1">
             {userFirstName}
           </h1>
         </div>
@@ -69,16 +69,17 @@ const ProfileCard = ({
             width={24}
             height={24}
             alt="headphones"
+            className="invert dark:invert-0"
           />
-          <h2 className="text-16 font-semibold text-white-1">
+          <h2 className="text-16 font-semibold text-black-1 dark:text-white-1">
             {podcastData?.listeners} &nbsp;
-            <span className="font-normal text-white-2">monthly listeners</span>
+            <span className="font-normal text-black-2 dark:text-white-2">monthly listeners</span>
           </h2>
         </figure>
         {podcastData?.podcasts.length > 0 && (
           <Button
             onClick={playRandomPodcast}
-            className="text-16 bg-orange-1 font-extrabold text-white-1"
+            className="text-16 bg-orange-1 font-extrabold text-black-1 dark:text-white-1"
           >
             <Image
               src="/icons/Play.svg"

@@ -3,6 +3,8 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import ConvexClerkProvider  from "@/providers/ConvexClerkProvider";
 import AudioProvider  from "@/providers/AudioProvider";
+import ThemeLightOrDarkProvider from "@/providers/ThemeProvider";
+
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -24,8 +26,10 @@ export default function RootLayout({
       <html lang="en">
         <AudioProvider>
           <body className={`${manrope.className}`}>
-            {children}
-          </body>
+            <ThemeLightOrDarkProvider>
+              {children}
+            </ThemeLightOrDarkProvider>
+            </body>
           </AudioProvider>
       </html>
     </ConvexClerkProvider>

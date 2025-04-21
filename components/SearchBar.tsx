@@ -32,7 +32,7 @@ const SearchBar = () => {
                 alt="search"
                 height={20}
                 width={20}
-                className="absolute left-4 top-3.5"
+                className="absolute left-4 top-3.5 invert dark:invert-0"
             />
         </div>
     )

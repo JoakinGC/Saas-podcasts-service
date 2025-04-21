@@ -13,7 +13,7 @@ const Home = ()=>{
   return(
     <div className='mt-9 flex flex-col gap-9 md:overflow-hidden'>
       <section className='flex flex-col gap-5'>
-        <h1 className='text-20 font-bold text-white-1'>Trending Posdcast</h1>
+        <h1 className='text-20 font-bold text-black-1 dark:text-white-1'>Trending Posdcast</h1>
         
         <div className="podcast_grid">
         {trendingPodcast?.map(({_id,podcastDescription,podcastTitle,imageUrl}) =>{

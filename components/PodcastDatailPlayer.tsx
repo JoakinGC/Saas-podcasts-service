@@ -71,7 +71,7 @@ const PodcastDetailPlayer = ({
         />
         <div className="flex w-full flex-col gap-5 max-md:items-center md:gap-9">
           <article className="flex flex-col gap-2 max-md:items-center">
-            <h1 className="text-32 font-extrabold tracking-[-0.32px] text-white-1">
+            <h1 className="text-32 font-extrabold tracking-[-0.32px] text-black-1 dark:text-white-1">
               {podcastTitle}
             </h1>
             <figure
@@ -87,13 +87,13 @@ const PodcastDetailPlayer = ({
                 alt="Caster icon"
                 className="size-[30px] rounded-full object-cover"
               />
-              <h2 className="text-16 font-normal text-white-3">{author}</h2>
+              <h2 className="text-16 font-normal text-black-3 dark:text-white-3">{author}</h2>
             </figure>
           </article>
 
           <Button
             onClick={handlePlay}
-            className="text-16 w-full max-w-[250px] bg-orange-1 font-extrabold text-white-1"
+            className="text-16 w-full max-w-[250px] bg-orange-1 font-extrabold text-black-1 dark:text-white-1"
           >
             <Image
               src="/icons/Play.svg"
@@ -117,7 +117,7 @@ const PodcastDetailPlayer = ({
           />
           {isDeleting && (
             <div
-              className="absolute -left-32 -top-2 z-10 flex w-32 cursor-pointer justify-center gap-2 rounded-md bg-black-6 py-1.5 hover:bg-black-2"
+              className="absolute -left-32 -top-2 z-10 flex w-32 cursor-pointer justify-center gap-2 rounded-md bg-white-5 dark:bg-black-6 py-1.5 hover:bg-white-2 dark:hover:bg-black-2"
               onClick={handleDelete}
             >
               <Image
@@ -125,8 +125,9 @@ const PodcastDetailPlayer = ({
                 width={16}
                 height={16}
                 alt="Delete icon"
+                className="invert dark:invert-0"
               />
-              <h2 className="text-16 font-normal text-white-1">Delete</h2>
+              <h2 className="text-16 font-normal text-black-1 dark:text-white-1">Delete</h2>
             </div>
           )}
         </div>
