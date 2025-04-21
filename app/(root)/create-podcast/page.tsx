@@ -112,40 +112,40 @@ const CreatePodcast = ()=>{
 
   return (
     <section className="mt-10 flex flex-col">
-        <h1 className='text-20 font-bold text-white-1'>Create Podcast</h1>
+        <h1 className='text-20 font-bold  dark:text-white-1'>Create Podcast</h1>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 flex w-full flex-col">
-        <div className="flex flex-col gap-[30px] border-b border-black-5 pb-10">
+        <div className="flex flex-col gap-[30px] border-b border-white-5 dark:border-black-5 pb-10">
         <FormField
           control={form.control}
           name="podcastTitle"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-2.5">
-              <FormLabel className="text-16 font-bold text-white-1">Title</FormLabel>
+              <FormLabel className="text-16 font-bold text-black-1 dark:text-white-1">Title</FormLabel>
               <FormControl>
                 <Input 
                 className="input-class focus-visible:ring-offset-orange-1"
                 placeholder="Podcast" {...field} />
               </FormControl>
               <FormMessage 
-              className="text-white-1"/>
+              className="text-black-1 dark:text-white-1"/>
             </FormItem>
           )}
         />
 
         <div className="flex flex-col gap-2.5">
-          <Label className="text-16 font-bold text-white-1">
+          <Label className="text-16 font-bold  text-black-1 dark:text-white-1">
             Select AI Voice
           </Label>
           <Select onValueChange={(value) => setVoiceType(value)}>
-            <SelectTrigger className={cn('text-16 w-full border-none bg-black-1 text-gray-1')}>
+            <SelectTrigger className={cn('text-16 w-full border-none bg-white-1 dark:bg-black-1 text-gray-1')}>
               <SelectValue 
               placeholder="Select AI Voice" 
               className="placeholder:text-gray-1"
               />
             </SelectTrigger>
             <SelectContent
-              className="text-16 border-none bg-black-1 font-bold text-white-1 focus:ring-orange-1"
+              className="text-16 border-none bg-white-1 dark:bg-black-1 font-bold text-black-1 dark:text-white-1 focus:ring-orange-1"
             >
              {voiceCategories.map((category) => (
               <SelectItem 
@@ -170,14 +170,14 @@ const CreatePodcast = ()=>{
           name="podcastDescription"
           render={({ field }) => (
             <FormItem className="flex flex-col gap-2.5">
-              <FormLabel className="text-16 font-bold text-white-1">Description</FormLabel>
+              <FormLabel className="text-16 font-bold text-black-1 dark:text-white-1">Description</FormLabel>
               <FormControl>
                 <Textarea
                 className="input-class focus-visible:ring-offset-orange-1"
                 placeholder="Write a short podcast description" {...field} />
               </FormControl>
               <FormMessage 
-              className="text-white-1"/>
+              className="text-black-1 dark:text-white-1"/>
             </FormItem>
           )}
         />
@@ -205,7 +205,7 @@ const CreatePodcast = ()=>{
 
           <div className="mt-10 w-full">
             <Button type="submit"
-            className="text-16 w-full bg-orange-1 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1">
+            className="text-16 w-full bg-orange-1 py-4 font-extrabold text-black-1 dark:text-white-1 transition-all duration-500 hover:bg-white-1 dark:hover:bg-black-1">
               {isSubmitting ? (
                 <>
                   Submitting

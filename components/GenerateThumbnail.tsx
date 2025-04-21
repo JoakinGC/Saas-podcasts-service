@@ -98,27 +98,27 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
           variant="plain"
           onClick={() => setIsAiThumbnail(true)}
           className={cn('',{
-            'bg-black-6':isAiThumbnail
+            'bg-white-5 dark:bg-black-6':isAiThumbnail
           })}
         >
-          Use AI to Generate thumbnail
+          <span className="text-black-1 dark:text-white-1">Use AI to Generate thumbnail</span>
         </Button>
         <Button
           type="button"
           variant="plain"
           onClick={() => setIsAiThumbnail(false)}
           className={cn('',{
-            'bg-black-6':!isAiThumbnail
+            'bg-white-5 dark:bg-black-6':!isAiThumbnail
           })}
         >
-          Upload custom image
+          <span className='text-black-1 dark:text-white-1'>Upload custom image</span>
         </Button>
       </div>
 
       {isAiThumbnail ? (
         <div className='flex flex-col gap-5'>
           <div className='mt-5 flex flex-col gap-2.5'>
-            <Label className="text-16 font-bold text-white-1">
+            <Label className="text-16 font-bold text-black-1 dark:text-white-1">
               AI Prompt to generate Thunbnail
              </Label>
             <Textarea
@@ -131,7 +131,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
         </div>
         <div className="w-full max-w-[200px]">
           <Button type="submit"
-              className="text-16 bg-orange-1 py-4 font-bold text-white-1 transition-all "
+              className="text-16 bg-orange-1 py-4 font-bold text-black-1 dark:text-white-1 transition-all "
               onClick={generateImage}
               >
                 {isImageLoading ? (
@@ -163,7 +163,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
                 height={40}
               />
             ):(
-              <div className="text-16 flex-center font-medium text-white-1">
+              <div className="text-16 flex-center font-medium text-black-1 dark:text-white-1">
                 Uploading
                 <Loader 
                   size={20} 

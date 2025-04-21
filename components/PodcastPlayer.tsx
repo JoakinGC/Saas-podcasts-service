@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { useAudio } from "@/providers/AudioProvider";
 
 import { Progress } from "./ui/progress";
+import { useTheme } from "next-themes";
 
 const PodcastPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -16,7 +17,8 @@ const PodcastPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const { audio } = useAudio();
-
+  const themes = useTheme();
+  const glassmorphismTheme = (themes.theme==="dark") ? "glassmorphism-black" : "glassmorphism-white";
   const togglePlayPause = () => {
     if (audioRef.current?.paused) {
       audioRef.current?.play();
@@ -26,7 +28,7 @@ const PodcastPlayer = () => {
       setIsPlaying(false);
     }
   };
-
+  
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted;
@@ -52,6 +54,10 @@ const PodcastPlayer = () => {
       audioRef.current.currentTime = 0;
     }
   };
+
+  console.log(themes);
+  console.log(themes.theme==="dark");
+
 
   useEffect(() => {
     const updateCurrentTime = () => {
@@ -104,7 +110,7 @@ const PodcastPlayer = () => {
         className="w-full"
         max={duration}
       />
-      <section className="glassmorphism-black flex h-[112px] w-full items-center justify-between px-4 max-md:justify-center max-md:gap-5 md:px-12">
+      <section className={`${glassmorphismTheme} flex h-[112px] w-full items-center justify-between px-4 max-md:justify-center max-md:gap-5 md:px-12`}>
         <audio
           ref={audioRef}
           src={audio?.audioUrl}
@@ -123,10 +129,10 @@ const PodcastPlayer = () => {
             />
           </Link>
           <div className="flex w-[160px] flex-col">
-            <h2 className="text-14 truncate font-semibold text-white-1">
+            <h2 className="text-14 truncate font-semibold text-black-1 dark:text-white-1">
               {audio?.title}
             </h2>
-            <p className="text-12 font-normal text-white-2">{audio?.author}</p>
+            <p className="text-12 font-normal text-black-2 dark:text-white-2">{audio?.author}</p>
           </div>
         </div>
         <div className="flex-center cursor-pointer gap-3 md:gap-6">
@@ -138,7 +144,7 @@ const PodcastPlayer = () => {
               alt="rewind"
               onClick={rewind}
             />
-            <h2 className="text-12 font-bold text-white-4">-5</h2>
+            <h2 className="text-12 font-bold text-black-4 dark:text-white-4">-5</h2>
           </div>
           <Image
             src={isPlaying ? "/icons/Pause.svg" : "/icons/Play.svg"}
@@ -148,7 +154,7 @@ const PodcastPlayer = () => {
             onClick={togglePlayPause}
           />
           <div className="flex items-center gap-1.5">
-            <h2 className="text-12 font-bold text-white-4">+5</h2>
+            <h2 className="text-12 font-bold text-black-4 dark:text-white-4">+5</h2>
             <Image
               src={"/icons/forward.svg"}
               width={24}
@@ -159,7 +165,7 @@ const PodcastPlayer = () => {
           </div>
         </div>
         <div className="flex items-center gap-6">
-          <h2 className="text-16 font-normal text-white-2 max-md:hidden">
+          <h2 className="text-16 font-normal text-black-2 dark:text-white-2 max-md:hidden">
             {formatTime(duration)}
           </h2>
           <div className="flex w-full gap-2">

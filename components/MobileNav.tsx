@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
+import SignInOutButton from "./SignInOutButton";
 
 const MobileNav = ()=>{
   const pathName = usePathname();
@@ -28,14 +30,17 @@ const MobileNav = ()=>{
             />
           </SheetTrigger>
             <SheetContent side="left"
-            className="border-none bg-black-1">
+            className="border-none bg-white-1 dark:bg-black-1">
+              <div className="flex  gap-16">
               <Link href="/" className="flex cursor-pointer items-center gap-1 pb-10 pl-4">
                 <Image src="/icons/logo.svg" alt='logo' width={23} height={27}/>
-                <h1 className="text-24 font-extrabold text-white-1 ml-2">Podcast</h1>
+                <h1 className="text-24 font-extrabold text-black-1 dark:text-white-1 ml-2">Podcast</h1>
               </Link>
+              <ThemeToggle/>
+              </div>
               <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
                 <SheetClose asChild>
-                  <nav className="flex h-full flex-col gap-6 text-white-1">
+                  <nav className="flex h-full flex-col gap-6 text-black-1 dark:text-white-1">
                   {sidebarLinks.map(({route,label,imgURL}) =>{
                     const isActive = pathName === route || pathName.startsWith(`${route}/`);
                     return (
@@ -47,6 +52,11 @@ const MobileNav = ()=>{
                     )
                   })}
                   </nav>
+                </SheetClose>
+                <SheetClose>
+                  <div className="mb-4">
+                    <SignInOutButton/>
+                  </div>
                 </SheetClose>
               </div>
             </SheetContent>

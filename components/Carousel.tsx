@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
+import { EmblaCarouselType } from 'embla-carousel'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -51,7 +51,7 @@ const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
             />
             <div className="glassmorphism-black relative z-10 flex flex-col rounded-b-xl p-4">
               <h2 className="text-14 font-semibold text-white-1">{item.podcast[0]?.podcastTitle}</h2>
-              <p className="text-12 font-normal text-white-2">{item.name}</p>
+              <p className="text-12 font-normal  text-white-2">{item.name}</p>
             </div>
           </figure>
         ))}
