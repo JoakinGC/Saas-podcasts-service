@@ -1,12 +1,35 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { locales, defaultLocale } from './constants';
+import { getLocale } from './lib/getLocale';
 
-const isPublicRoute = createRouteMatcher(['/sign-in(.*)','/sign-up(.*)','/'])
+const publicRoutes = ['/sign-in(.*)', '/sign-up(.*)',"/","/fr","/es","/de","/en"];
+const isPublic = createRouteMatcher([
+  ...publicRoutes,
+  ...locales.flatMap(l => publicRoutes.map(r => `/${l}${r}`))
+]);
 
 export default clerkMiddleware(async (auth, req) => {
-  // Restrict admin route to users with specific role
-  if (!isPublicRoute(req)) await auth.protect()
+  const { pathname } = req.nextUrl;
+
+  if (/\.(mp3|mp4|webm|png|jpg|svg|jpeg|gif)$/.test(pathname)) {
+    return NextResponse.next();
+  }
+
+  if (!getLocale(pathname)) {
+    return NextResponse.redirect(
+      new URL(`/${defaultLocale}${pathname}`, req.url),
+      307
+    );
+  }
+  if (!isPublic(req)) {
+    await auth.protect();          
+  }
+
 
 })
+
+
 
 export const config = {
   matcher: [

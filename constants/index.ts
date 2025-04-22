@@ -1,20 +1,20 @@
 export const sidebarLinks = [
-    {
-      imgURL: "/icons/home.svg",
-      route: "/",
-      label: "Home",
-    },
-    {
-      imgURL: "/icons/discover.svg",
-      route: "/discover",
-      label: "Discover",
-    },
-    {
-      imgURL: "/icons/microphone.svg",
-      route: "/create-podcast",
-      label: "Create Podcast",
-    },
-  ];
+  {
+    imgURL: "/icons/home.svg",
+    route: "",
+    label: "Home",
+  },
+  {
+    imgURL: "/icons/discover.svg",
+    route: "/discover",
+    label: "Discover",
+  },
+  {
+    imgURL: "/icons/microphone.svg",
+    route: "/create-podcast",
+    label: "Create Podcast",
+  },
+];
   
   export const voiceDetails = [
     {
@@ -101,3 +101,7 @@ export const sidebarLinks = [
         "https://lovely-flamingo-139.convex.cloud/api/storage/221ee4bd-435f-42c3-8e98-4a001e0d806e",
     },
   ];
+
+export const locales  = ['es', 'en', 'fr', 'de'] as const;
+
+export const defaultLocale = 'es';

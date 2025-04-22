@@ -1,0 +1,13 @@
+{
+    "Home": {
+      "title": "Bienvenido a mi sitio",
+      "description": "Esta es una página de ejemplo con soporte para varios idiomas.",
+      "button": "Empezar"
+    },
+    "Navbar": {
+      "home": "Inicio",
+      "about": "Acerca de",
+      "contact": "Contacto"
+    }
+  }
+  

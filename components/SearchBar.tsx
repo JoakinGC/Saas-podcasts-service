@@ -5,18 +5,20 @@ import { Input } from './ui/input'
 import Image from 'next/image'
 import { useRouter,usePathname } from 'next/navigation'
 import { useDebounce } from "@/lib/useDebounce";
+import {useLocale} from "next-intl"
 
 const SearchBar = () => {
     const [search, setSearch] = useState("");
     const router = useRouter();
     const pathName = usePathname();
     const debouncedvalue = useDebounce(search,500);
+    const locale = useLocale();
 
     useEffect(() =>{
         if(debouncedvalue){
-            router.push(`/discover?search=${search}`)
+            router.push(`/${locale}/discover?search=${search}`)
         }else if(!debouncedvalue && pathName === "discover")
-            router.push("/discover")
+            router.push(`/${locale}/discover`)
     },[router,pathName,debouncedvalue])
     return (
         <div className="relative mt-8 block">

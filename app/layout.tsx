@@ -1,12 +1,11 @@
+import {Manrope} from 'next/font/google';
+import './globals.css';
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-import "./globals.css";
-import ConvexClerkProvider  from "@/providers/ConvexClerkProvider";
-import AudioProvider  from "@/providers/AudioProvider";
-import ThemeLightOrDarkProvider from "@/providers/ThemeProvider";
+import ConvexClerkProvider  from '@/providers/ConvexClerkProvider';
+import AudioProvider        from '@/providers/AudioProvider';
+import ThemeProvider        from '@/providers/ThemeProvider';
 
-
-const manrope = Manrope({ subsets: ["latin"] });
+const manrope = Manrope({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: "Podcast",
@@ -16,22 +15,16 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <ConvexClerkProvider>
-      <html lang="en">
-        <AudioProvider>
-          <body className={`${manrope.className}`}>
-            <ThemeLightOrDarkProvider>
-              {children}
-            </ThemeLightOrDarkProvider>
-            </body>
+    <html lang="es">
+      <body className={manrope.className}>
+        <ConvexClerkProvider>
+          <AudioProvider>
+            <ThemeProvider>{children}</ThemeProvider>
           </AudioProvider>
-      </html>
-    </ConvexClerkProvider>
+        </ConvexClerkProvider>
+      </body>
+    </html>
   );
 }

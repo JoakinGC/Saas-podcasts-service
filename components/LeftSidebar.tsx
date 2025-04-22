@@ -8,8 +8,12 @@ import { cn } from '@/lib/utils'
 import { useAudio } from '@/providers/AudioProvider';
 import ThemeToggle from './ThemeToggle';
 import SignInOutButton from './SignInOutButton';
+import { useLocale } from 'next-intl';
+
+
 
 const LeftSideBar = () => {
+  const locale = useLocale();
   const pathName = usePathname();
   const {audio} = useAudio();
   return (
@@ -24,13 +28,20 @@ const LeftSideBar = () => {
               </Link>
               <ThemeToggle/>
             </div>
-            {sidebarLinks.map(({route,label,imgURL}) =>{
-              const isActive = pathName === route || pathName.startsWith(`${route}/`);
-              return (
-                <Link href={route} key={label} className={cn("flex gap-3 items-center py-4 max-lg:px-4 justify-center lg:justify-start",{"bg-nav-focus border-r-4 border-orange-1": isActive})}>
-                  <Image className="invert dark:invert-0" src={imgURL} alt={label} width={24} height={24}/>
-                  <p className="text-black-4 dark:text-white-4">{label}</p>
-                </Link>
+            
+
+              {sidebarLinks.map(({route,label,imgURL}) =>{
+                const fullRoute = `/${locale}${route}`;
+                const isActive =
+                  route === ""
+                  ? pathName === `/${locale}` || pathName === `/${locale}/`
+                  : pathName === fullRoute || pathName.startsWith(`${fullRoute}/`);
+
+                return (
+                  <Link href={fullRoute} key={label} className={cn("flex gap-3 items-center py-4 max-lg:px-4 justify-center lg:justify-start",{"bg-nav-focus border-r-4 border-orange-1": isActive})}>
+                    <Image className="invert dark:invert-0" src={imgURL} alt={label} width={24} height={24}/>
+                    <p className="text-black-4 dark:text-white-4">{label}</p>
+                  </Link>
               )
             })}
         </nav>

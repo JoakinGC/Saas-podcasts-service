@@ -12,13 +12,13 @@ import React from "react";
 
 
 const PosdcastDetails = (
-    {params:podcastId}
+    {params:{podcastId,lang}}
     :
-    {params:{podcastId: Id<"podcasts">}}
+    {params:{podcastId: Id<"podcasts">,lang:string}}
 ) =>{
     const {user} = useUser();
-    const podcast = useQuery(api.podcasts.getPodcastById,podcastId);
-    const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType,podcastId);
+    const podcast = useQuery(api.podcasts.getPodcastById,{podcastId});
+    const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType,{podcastId});
     const isOwner = user?.id === podcast?.authorId
 
     if(!similarPodcasts || !podcast)return <LoaderSpinner/>
