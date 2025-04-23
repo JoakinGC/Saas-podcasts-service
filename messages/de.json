@@ -1,13 +1,12 @@
 {
-    "Home": {
-      "title": "Bienvenido a mi sitio",
-      "description": "Esta es una página de ejemplo con soporte para varios idiomas.",
-      "button": "Empezar"
-    },
-    "Navbar": {
-      "home": "Inicio",
-      "about": "Acerca de",
-      "contact": "Contacto"
-    }
+  "Home": {
+    "title": "Willkommen auf meiner Seite",
+    "description": "Dies ist eine Beispielseite mit Unterstützung für mehrere Sprachen.",
+    "button": "Loslegen"
+  },
+  "Navbar": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "contact": "Kontakt"
   }
-  
+}

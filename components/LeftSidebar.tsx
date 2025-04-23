@@ -9,6 +9,7 @@ import { useAudio } from '@/providers/AudioProvider';
 import ThemeToggle from './ThemeToggle';
 import SignInOutButton from './SignInOutButton';
 import { useLocale } from 'next-intl';
+import LanguageSwitcher from './LanguajeSwitcher';
 
 
 
@@ -21,12 +22,13 @@ const LeftSideBar = () => {
       "h-[calc(100vh-116px]": audio?.audioUrl
     })}>
         <nav className="flex flex-col gap-6">
-          <div className="flex  gap-16 pb-10 max-lg:gap-8 max-lg:ml-8">
+          <div className="flex items-center justify-between gap-2 pb-10 max-lg:flex-col max-lg:gap-4 max-lg:items-center">
               <Link href="/" className="flex cursor-pointer items-center max-lg:justify-center">
                   <Image className="max-lg:m" src="/icons/logo.svg" alt='logo' width={23} height={27}/>
                   <h1 className="text-24 font-extrabold text-black dark:text-white max-lg:hidden">Podcast</h1>
               </Link>
               <ThemeToggle/>
+              <LanguageSwitcher/>
             </div>
             
 
