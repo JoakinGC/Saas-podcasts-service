@@ -13,7 +13,6 @@ export default function LanguageSwitcher() {
     if (newLocale === currentLocale) return;
   
     const segments = pathname.split('/');
-    // Si estás en "/", entonces agregar manualmente la ruta root
     if (!segments[1]) {
       router.push(`/${newLocale}`);
     } else {

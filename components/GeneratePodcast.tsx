@@ -11,6 +11,7 @@ import { filterApi } from 'convex/server';
 import { generateUploadUrl } from '@/convex/files';
 import {useUploadFiles} from '@xixixao/uploadstuff/react';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslations } from 'next-intl';
 
 
 const useGeneratePodcast = ({
@@ -79,16 +80,17 @@ const useGeneratePodcast = ({
 
 const GeneratePodcast = (props:GeneratePodcastProps) => {
     const {isGenerating,generatePodcast} = useGeneratePodcast(props);
-  
+    const t = useTranslations('GeneratePodcastComponent');
+
     return (
     <div>
       <div className='flex flex-col gap-2.5'>
         <Label className="text-16 font-bold text-black-1 dark:text-white-1">
-            AI Prompt to generate Podcast
+            {t('title')}
         </Label>
         <Textarea
           className="input-class font-light focus-visible:ring-offset-orange-1"
-          placeholder='Provide text to generate audio'
+          placeholder={t('placeholderGenerateAudio')}
           rows={5}
           value={props.voicePrompt}
           onChange={(e) => props.setVoicePrompt(e.target.value)}
@@ -101,12 +103,12 @@ const GeneratePodcast = (props:GeneratePodcastProps) => {
             >
               {isGenerating ? (
                 <>
-                  Generating
+                  {t('generating')}
                   <Loader  size={20} 
                   className="animate-spin ml-2"/>
                 </>
               ):(
-                'Generate'
+                <span>{t('generate')}</span>
               )}
             </Button>
       </div>

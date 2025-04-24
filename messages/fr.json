@@ -1,12 +1,98 @@
 {
   "Home": {
-    "title": "Bienvenue sur mon site",
-    "description": "Ceci est une page d'exemple avec prise en charge de plusieurs langues.",
-    "button": "Commencer"
+    "title": "Podcasts tendances",
+    "description": "Ceci est une page d'exemple avec prise en charge de plusieurs langues."
   },
   "Navbar": {
     "home": "Accueil",
-    "about": "À propos",
-    "contact": "Contact"
+    "discover": "Découvrir",
+    "createPodcastNav": "Créer un podcast",
+    "signIn": "Se connecter",
+    "logOut": "Se déconnecter"
+  },
+  "Discover": {
+    "search": "Résultats de recherche pour : ",
+    "title": "Découvrir les podcasts tendances"
+  },
+  "createPodcastPage": {
+    "title": "Créer un podcast",
+    "titleLabel": "Titre",
+    "selectAIVoice": "Choisir une voix IA",
+    "placeholderSelectAIVoice": "Choisir une voix IA",
+    "descriptionForm": "Description",
+    "placeholderDescription": "Écrivez une courte description du podcast",
+    "submitting": "Soumission...",
+    "publish": "Soumettre et publier le podcast",
+    "titlePodcastCreate": "Podcast créé",
+    "ErrorCreatedPodcast": "Erreur lors de la création du podcast",
+    "PleaseGenerate": "Veuillez générer l'audio et l'image",
+    "titleRequired": "Le titre est requis",
+    "descriptionRequired": "La description est requise"
+  },
+  "Profile": {
+    "title": "Profil du podcasteur",
+    "allPodcasts": "Tous les podcasts"
+  },
+  "PodcastDatil": {
+    "title": "Lecture en cours",
+    "altImgHeadphones": "casque audio",
+    "transcription": "Transcription",
+    "thumbnailPrompt": "Prompt de vignette",
+    "similarPodcasts": "Podcasts similaires"
+  },
+  "headerComponet": {
+    "seeAll": "Voir tout",
+    "headerTitleCarrousel": "Fans comme vous",
+    "hearderTitleTop": "Meilleurs podcasts"
+  },
+  "emptyState": {
+    "try": "Essayez d'ajuster votre recherche pour trouver ce que vous cherchez",
+    "discorverImg": "découvrir",
+    "emptyStateImg": "état vide",
+    "notFoundTitle": "Aucun résultat trouvé",
+    "emptyNotCreatedPodcast": "Vous n'avez encore créé aucun podcast",
+    "buttonCreatedPodcast": "Créer un podcast",
+    "titlePodcastNotFound": "Aucun podcast similaire trouvé",
+    "discoverMorePodcastButton": "Découvrir plus de podcasts"
+  },
+  "GeneratePodcastComponent": {
+    "title": "Prompt IA pour générer un podcast",
+    "placeholderGenerateAudio": "Saisir du texte pour générer l'audio",
+    "generating": "Génération...",
+    "generate": "Générer"
+  },
+  "GenerateThumbnail": {
+    "titleSuccess": "Vignette générée avec succès",
+    "errorGeneratingThubnail": "Erreur lors de la génération de la vignette",
+    "errorUploading": "Erreur lors du téléchargement de l'image",
+    "title": "Utiliser l'IA pour générer une vignette",
+    "uploadImage": "Télécharger une image personnalisée",
+    "promptGenerateThunbnail": "Prompt IA pour générer une vignette",
+    "placeholderGenerateThumbnail": "Saisir du texte pour générer une vignette",
+    "uploading": "Téléchargement...",
+    "generate": "Générer",
+    "altImageUpload": "téléverser",
+    "clickUpload": "Cliquez pour téléverser",
+    "formatImg": "SVG, PNG, JPG ou GIF (max 1080x1080px)",
+    "altThumbnailImg": "vignette"
+  },
+  "profileCardComponent": {
+    "altImgPodcaster": "podcasteur",
+    "verifiedAltImg": "vérifié",
+    "verified": "Créateur vérifié",
+    "altImgHeadphones": "casque",
+    "listeners": "auditeurs mensuels",
+    "altRandomPlay": "lecture aléatoire",
+    "playRandomPodcast": "Écouter un podcast aléatoire"
+  },
+  "PodcastDetailPlayerComponent": {
+    "podcastDeleted": "Podcast supprimé",
+    "errorDeletingPodcast": "Erreur lors de la suppression du podcast",
+    "imgAltPodcast": "Image du podcast",
+    "altIconImage": "Icône du créateur",
+    "buttonPlay": "Lire le podcast",
+    "altImgDotsIcon": "Icône trois points",
+    "deleteIconAltImage": "Icône de suppression",
+    "deleteButton": "Supprimer"
   }
 }

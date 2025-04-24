@@ -7,6 +7,7 @@ import { PodcastProps, ProfileCardProps } from "@/types";
 
 import LoaderSpinner from "./LoaderSpinner";
 import { Button } from "./ui/button";
+import { useTranslations } from "next-intl";
 
 const ProfileCard = ({
   podcastData,
@@ -16,6 +17,7 @@ const ProfileCard = ({
   const { setAudio } = useAudio();
 
   const [randomPodcast, setRandomPodcast] = useState<PodcastProps | null>(null);
+  const t = useTranslations('profileCardComponent');
 
   const playRandomPodcast = () => {
     const randomIndex = Math.floor(Math.random() * podcastData.podcasts.length);
@@ -43,7 +45,7 @@ const ProfileCard = ({
         src={imageUrl}
         width={250}
         height={250}
-        alt="Podcaster"
+        alt={t('altImgPodcaster')}
         className="aspect-square rounded-lg"
       />
       <div className="flex flex-col justify-center max-md:items-center">
@@ -53,10 +55,10 @@ const ProfileCard = ({
               src="/icons/verified.svg"
               width={15}
               height={15}
-              alt="verified"
+              alt={t('verifiedAltImg')}
             />
             <h2 className="text-14 font-medium text-black-2 dark:text-white-2">
-              Verified Creator
+              {t('verified')}
             </h2>
           </figure>
           <h1 className="text-32 font-extrabold tracking-[-0.32px] text-black-1 dark:text-white-1">
@@ -68,12 +70,12 @@ const ProfileCard = ({
             src="/icons/headphone.svg"
             width={24}
             height={24}
-            alt="headphones"
+            alt={t('altImgHeadphones')}
             className="invert dark:invert-0"
           />
           <h2 className="text-16 font-semibold text-black-1 dark:text-white-1">
             {podcastData?.listeners} &nbsp;
-            <span className="font-normal text-black-2 dark:text-white-2">monthly listeners</span>
+            <span className="font-normal text-black-2 dark:text-white-2">{t('listeners')}</span>
           </h2>
         </figure>
         {podcastData?.podcasts.length > 0 && (
@@ -85,9 +87,9 @@ const ProfileCard = ({
               src="/icons/Play.svg"
               width={20}
               height={20}
-              alt="random play"
+              alt={t('altRandomPlay')}
             />{" "}
-            &nbsp; Play a random podcast
+            &nbsp; {t('playRandomPodcast')}
           </Button>
         )}
       </div>

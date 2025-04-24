@@ -10,12 +10,14 @@ import { useRouter } from "next/navigation";
 import LoaderSpinner from "./LoaderSpinner";
 import { useAudio } from "@/providers/AudioProvider";
 import { cn } from "@/lib/utils";
+import { useLocale, useTranslations } from "next-intl";
 
 const RigthSidebar = ()=>{
   const {user} = useUser();
   const topPodcasters = useQuery(api.users.getTopUserByPodcastCount);
   const {audio} = useAudio();
   const router = useRouter();
+  const locale =useLocale();
 
   if(!topPodcasters) return <LoaderSpinner/>
    return (
@@ -39,18 +41,18 @@ const RigthSidebar = ()=>{
       </SignedIn>
       <section>
         <Header
-          headerTitle="Fans Like You"
+          headerTitle="headerTitleCarrousel"
         />
         <Carousel 
           fansLikeDetail={topPodcasters!}
         />
       </section>
       <section className="flex flex-col gap-8 pt-12">
-        <Header headerTitle="Top Podcasts"/>
+        <Header headerTitle="hearderTitleTop"/>
         <div className="flex flex-col gap-6">
           {topPodcasters?.slice(0,4).map((podcaster) => (
             <div key={podcaster._id} className="flex cursor-pointer justify-between"
-              onClick={() =>router.push(`/profile/${podcaster.clerkId}`)}
+              onClick={() =>router.push(`/${locale}/profile/${podcaster.clerkId}`)}
             >
               <figure className="flex items-center gap-2">
                 <Image

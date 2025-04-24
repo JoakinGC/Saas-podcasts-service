@@ -7,9 +7,11 @@ import { CarouselProps } from '@/types'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import LoaderSpinner from './LoaderSpinner'
+import { useLocale } from 'next-intl'
 
 const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
   const router = useRouter();
+  const locale = useLocale();
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])
 
@@ -41,7 +43,7 @@ const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
           <figure
             key={item._id}
             className="carousel_box"
-            onClick={() => router.push(`/podcasts/${item.podcast[0]?.podcastId}`)}
+            onClick={() => router.push(`/${locale}/podcasts/${item.podcast[0]?.podcastId}`)}
           >
             <Image 
             src={item.imageUrl}

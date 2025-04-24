@@ -1,12 +1,98 @@
 {
   "Home": {
-    "title": "Bienvenido a mi sitio",
-    "description": "Esta es una página de ejemplo con soporte para varios idiomas.",
-    "button": "Empezar"
+    "title": "Podcasts en tendencia",
+    "description": "Esta es una página de ejemplo con soporte para múltiples idiomas."
   },
   "Navbar": {
     "home": "Inicio",
-    "about": "Acerca de",
-    "contact": "Contacto"
+    "discover": "Descubrir",
+    "createPodcastNav": "Crear Podcast",
+    "signIn": "Iniciar sesión",
+    "logOut": "Cerrar sesión"
+  },
+  "Discover": {
+    "search": "Resultado de búsqueda para: ",
+    "title": "Descubre los podcasts en tendencia"
+  },
+  "createPodcastPage": {
+    "title": "Crear Podcast",
+    "titleLabel": "Título",
+    "selectAIVoice": "Seleccionar voz de IA",
+    "placeholderSelectAIVoice": "Seleccionar voz de IA",
+    "descriptionForm": "Descripción",
+    "placeholderDescription": "Escribe una breve descripción del podcast",
+    "submitting": "Enviando...",
+    "publish": "Enviar y publicar podcast",
+    "titlePodcastCreate": "Podcast creado",
+    "ErrorCreatedPodcast": "Error al crear el podcast",
+    "PleaseGenerate": "Por favor, genera el audio y la imagen",
+    "titleRequired": "El título es obligatorio",
+    "descriptionRequired": "La descripción es obligatoria"
+  },
+  "Profile": {
+    "title": "Perfil del Podcaster",
+    "allPodcasts": "Todos los podcasts"
+  },
+  "PodcastDatil": {
+    "title": "Reproduciendo ahora",
+    "altImgHeadphones": "auriculares",
+    "transcription": "Transcripción",
+    "thumbnailPrompt": "Prompt de imagen miniatura",
+    "similarPodcasts": "Podcasts similares"
+  },
+  "headerComponet": {
+    "seeAll": "Ver todo",
+    "headerTitleCarrousel": "Fans como tú",
+    "hearderTitleTop": "Podcasts más populares"
+  },
+  "emptyState": {
+    "try": "Intenta ajustar tu búsqueda para encontrar lo que estás buscando",
+    "discorverImg": "descubrir",
+    "emptyStateImg": "estado vacío",
+    "notFoundTitle": "No se encontraron resultados",
+    "emptyNotCreatedPodcast": "Aún no has creado ningún podcast",
+    "buttonCreatedPodcast": "Crear podcast",
+    "titlePodcastNotFound": "No se encontraron podcasts similares",
+    "discoverMorePodcastButton": "Descubrir más podcasts"
+  },
+  "GeneratePodcastComponent": {
+    "title": "Prompt de IA para generar podcast",
+    "placeholderGenerateAudio": "Escribe un texto para generar audio",
+    "generating": "Generando...",
+    "generate": "Generar"
+  },
+  "GenerateThumbnail": {
+    "titleSuccess": "Miniatura generada con éxito",
+    "errorGeneratingThubnail": "Error al generar la miniatura",
+    "errorUploading": "Error al subir la imagen",
+    "title": "Usa IA para generar una miniatura",
+    "uploadImage": "Subir imagen personalizada",
+    "promptGenerateThunbnail": "Prompt de IA para generar miniatura",
+    "placeholderGenerateThumbnail": "Escribe un texto para generar la miniatura",
+    "uploading": "Subiendo...",
+    "generate": "Generar",
+    "altImageUpload": "subir",
+    "clickUpload": "Haz clic para subir",
+    "formatImg": "SVG, PNG, JPG o GIF (máx. 1080x1080px)",
+    "altThumbnailImg": "miniatura"
+  },
+  "profileCardComponent": {
+    "altImgPodcaster": "Podcaster",
+    "verifiedAltImg": "verificado",
+    "verified": "Creador verificado",
+    "altImgHeadphones": "auriculares",
+    "listeners": "oyentes mensuales",
+    "altRandomPlay": "reproducción aleatoria",
+    "playRandomPodcast": "Reproducir un podcast aleatorio"
+  },
+  "PodcastDetailPlayerComponent": {
+    "podcastDeleted": "Podcast eliminado",
+    "errorDeletingPodcast": "Error al eliminar el podcast",
+    "imgAltPodcast": "Imagen del podcast",
+    "altIconImage": "Icono del podcaster",
+    "buttonPlay": "Reproducir podcast",
+    "altImgDotsIcon": "Icono de tres puntos",
+    "deleteIconAltImage": "Icono de eliminar",
+    "deleteButton": "Eliminar"
   }
 }

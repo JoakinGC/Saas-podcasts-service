@@ -7,6 +7,7 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useUser } from "@clerk/nextjs";
 import { useQuery } from "convex/react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
@@ -17,6 +18,7 @@ const PosdcastDetails = (
     {params:{podcastId: Id<"podcasts">,lang:string}}
 ) =>{
     const {user} = useUser();
+    const t = useTranslations('PodcastDatil')
     const podcast = useQuery(api.podcasts.getPodcastById,{podcastId});
     const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType,{podcastId});
     const isOwner = user?.id === podcast?.authorId
@@ -26,14 +28,14 @@ const PosdcastDetails = (
        <section className="flex w-full flex-col">
             <header className="mt-9 flex items-center justify-between">
                 <h1 className="text-20 font-bold text-black-1 dark:text-white-1">
-                    Currenty Playing
+                    {t('title')}
                 </h1>
                 <figure className="flex gap-3">
                     <Image
                      src="/icons/headphone.svg"
                      width={24}
                      height={24}
-                     alt="headphone"
+                     alt={t('altImgHeadphones')}
                      className="invert dark:invert-0"
                     />
                     <h2 className="text-16 font-bold text-black-1 dark:text-white-1">{podcast?.view}</h2>
@@ -59,16 +61,16 @@ const PosdcastDetails = (
                 </p>
                 <div className="flex flex-col gap-8 ">
                     <div className="flex flex-col gap-4">
-                        <h1 className="text-18 font-bold text-black-1 dark:text-white-1">Transcription</h1>
+                        <h1 className="text-18 font-bold text-black-1 dark:text-white-1">{t('transcription')}</h1>
                         <p className="text-16 font-medium text-black-2 dark:text-white-2">{podcast?.voicePrompt}</p>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h1 className="text-18 font-bold text-black-1 dark:text-white-1">Thumnail Prompt</h1>
+                        <h1 className="text-18 font-bold text-black-1 dark:text-white-1">{t('thumbnailPrompt')}</h1>
                         <p className="text-16 font-medium text-black-2 dark:text-white-2">{podcast?.imagePrompt}</p>
                     </div>
                 </div>
                 <section className="mt-8 flex flex-col gap 5">
-                    <h1 className="text-20 font-bold text-black-1 dark:text-white-1">Similar Podcasts</h1>
+                    <h1 className="text-20 font-bold text-black-1 dark:text-white-1">{t('similarPodcasts')}</h1>
 
                     {similarPodcasts && similarPodcasts.length>0 ? (
                            <div className="podcast_grid">
@@ -87,9 +89,9 @@ const PosdcastDetails = (
                     ):(
                         <>
                         <EmptyState
-                           title="No similar podcasts found"
+                           title="titlePodcastNotFound"
                            buttonLink="/discover"
-                           buttonText="Discover more podcasts" 
+                           buttonText="discoverMorePodcastButton"
                         />
                         </>
                     )}
