@@ -54,7 +54,7 @@ const MobileNav = ()=>{
               className="border-none bg-white-1 dark:bg-black-1">
               <div className="flex  gap-16 items-center">
                 <Link href="/" className="flex cursor-pointer items-center gap-1">
-                  <Image src="/icons/logo.svg" alt='logo' width={23} height={27}/>
+                  <Image src="/icons/logo.svg" alt='logo'className="w-8 h-8" width={23} height={27} priority />
                   <h1 className="text-24 font-extrabold text-black-1 dark:text-white-1 ml-2">Podcast</h1>
                 </Link>
                 <ThemeToggle/>
@@ -72,7 +72,7 @@ const MobileNav = ()=>{
                       ? pathName === `/${locale}` || pathName === `/${locale}/`
                       : pathName === fullRoute || pathName.startsWith(`${fullRoute}/`);
                     return (
-                      <SheetClose asChild key={route}><Link href={route} key={label} className={cn("flex gap-3 items-center py-4 max-lg:px-4 justify-start",{"bg-nav-focus border-r-4 border-orange-1": isActive})}>
+                      <SheetClose asChild key={fullRoute}><Link href={fullRoute} key={label} className={cn("flex gap-3 items-center py-4 max-lg:px-4 justify-start",{"bg-nav-focus border-r-4 border-orange-1": isActive})}>
                         <Image src={imgURL} alt={t(label)} width={24} height={24}/>
                         <p>{t(label)}</p>
                       </Link>

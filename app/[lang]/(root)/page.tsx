@@ -18,13 +18,14 @@ const Home = ()=>{
         <h1 className='text-20 font-bold text-black-1 dark:text-white-1'>{t('title')}</h1>
         
         <div className="podcast_grid">
-        {trendingPodcast?.map(({_id,podcastDescription,podcastTitle,imageUrl}) =>{
+        {trendingPodcast?.map(({_id,podcastDescription,podcastTitle,imageUrl},index) =>{
           return (
             <PodcastCard
               key={_id}
               imgUrl={imageUrl!}
               title={podcastTitle}
               description={podcastDescription}
+              index={index}
               podcastId={_id}
             />
           );

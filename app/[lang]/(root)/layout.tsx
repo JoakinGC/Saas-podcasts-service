@@ -25,8 +25,10 @@ export default function RootLayout({
                   <Image
                     alt="menu icon" 
                     src="/icons/logo.svg"
+                    priority
                     width={30}
                     height={30}
+                    className="w-8 h-8" 
                   />
                   <MobileNav/>
                 </div>

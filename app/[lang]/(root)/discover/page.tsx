@@ -26,7 +26,7 @@ const Discover = ({searchParams:{search,lang}} :{searchParams:{search:string,lan
                     <>
                         {podcastsData.length>0 ? (
                             <div className="podcast_grid">
-                                {podcastsData?.map(({_id,podcastDescription,podcastTitle,imageUrl}) =>{
+                                {podcastsData?.map(({_id,podcastDescription,podcastTitle,imageUrl},index) =>{
                                      return (
                                         <PodcastCard
                                             key={_id}
@@ -34,6 +34,7 @@ const Discover = ({searchParams:{search,lang}} :{searchParams:{search:string,lan
                                             title={podcastTitle}
                                             description={podcastDescription}
                                             podcastId={_id}
+                                            index={index}
                                         />
                                     );
                                 })}

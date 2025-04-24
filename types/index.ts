@@ -108,6 +108,7 @@ export interface PodcastCardProps {
   title: string;
   description: string;
   podcastId: Id<"podcasts">;
+  index:number;
 }
 
 export interface CarouselProps {

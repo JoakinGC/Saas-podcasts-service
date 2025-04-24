@@ -80,7 +80,7 @@ const PosdcastDetails = (
 
                     {similarPodcasts && similarPodcasts.length>0 ? (
                            <div className="podcast_grid">
-                           {similarPodcasts?.map(({_id,podcastDescription,podcastTitle,imageUrl}) =>{
+                           {similarPodcasts?.map(({_id,podcastDescription,podcastTitle,imageUrl},index) =>{
                              return (
                                <PodcastCard
                                  key={_id}
@@ -88,6 +88,7 @@ const PosdcastDetails = (
                                  title={podcastTitle}
                                  description={podcastDescription}
                                  podcastId={_id}
+                                 index={index}
                                />
                              );
                            })}

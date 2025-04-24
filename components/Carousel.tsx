@@ -49,7 +49,6 @@ const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
               src={item.imageUrl}
               alt="card"
               fill
-              priority={index === 0}
               sizes="(max-width: 768px) 100vw,   /* móvil: ocupa todo el ancho */
                     (max-width: 1200px) 50vw,   /* tablet: mitad */
                     33vw"                       /* desktop: un tercio */
