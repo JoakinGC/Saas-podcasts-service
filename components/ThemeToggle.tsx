@@ -1,4 +1,3 @@
-// components/ThemeToggle.tsx
 'use client';
 
 import { useTheme } from 'next-themes';
@@ -6,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
 export default function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();    // resolvedTheme = 'light' | 'dark'
+  const { resolvedTheme, setTheme } = useTheme();    
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -15,8 +14,7 @@ export default function ThemeToggle() {
     const next = resolvedTheme === 'dark' ? 'light' : 'dark';
     setTheme(next);
 
-    // ------- guardar cookie en el cliente -------
-    document.cookie = `theme=${next}; path=/; max-age=31536000`; // 1 año
+    document.cookie = `theme=${next}; path=/; max-age=31536000`; 
   };
 
   return (

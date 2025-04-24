@@ -39,17 +39,21 @@ const EmblaCarousel = ({ fansLikeDetail }: CarouselProps) => {
   return (
     <section className="flex w-full flex-col gap-4 overflow-hidden" ref={emblaRef}>
       <div className="flex">
-        {slides.slice(0, 5).map((item) => (
+        {slides.slice(0, 5).map((item,index) => (
           <figure
             key={item._id}
             className="carousel_box"
             onClick={() => router.push(`/${locale}/podcasts/${item.podcast[0]?.podcastId}`)}
           >
-            <Image 
-            src={item.imageUrl}
-            alt="card"
-            fill
-            className="absolute size-full rounded-xl border-none"
+            <Image
+              src={item.imageUrl}
+              alt="card"
+              fill
+              priority={index === 0}
+              sizes="(max-width: 768px) 100vw,   /* móvil: ocupa todo el ancho */
+                    (max-width: 1200px) 50vw,   /* tablet: mitad */
+                    33vw"                       /* desktop: un tercio */
+              className="absolute size-full rounded-xl border-none"
             />
             <div className="glassmorphism-black relative z-10 flex flex-col rounded-b-xl p-4">
               <h2 className="text-14 font-semibold text-white-1">{item.podcast[0]?.podcastTitle}</h2>

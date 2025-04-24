@@ -5,6 +5,9 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constants";
@@ -15,11 +18,14 @@ import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import SignInOutButton from "./SignInOutButton";
 import LanguageSwitcher from "./LanguajeSwitcher";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { DialogTitle } from '@radix-ui/react-dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const MobileNav = ()=>{
   const pathName = usePathname();
   const t = useTranslations('Navbar');
+  const locale =  useLocale();
     return(
       <section>
         <Sheet>
@@ -32,8 +38,20 @@ const MobileNav = ()=>{
               className="cursor-pointer"
             />
           </SheetTrigger>
+          <SheetHeader>
+            <DialogTitle asChild>
+                <VisuallyHidden>Mobile navigation</VisuallyHidden>
+            </DialogTitle>
+            <SheetTitle className="sr-only" id="mobile-nav-title">
+              Mobile navigation
+            </SheetTitle>
+            <SheetDescription id="mobile-nav-description" className="sr-only">
+                List of navigation links, theme toggle and language switcher
+            </SheetDescription>
+          </SheetHeader>
             <SheetContent side="left"
-            className="border-none bg-white-1 dark:bg-black-1">
+              aria-describedby={undefined}
+              className="border-none bg-white-1 dark:bg-black-1">
               <div className="flex  gap-16 items-center">
                 <Link href="/" className="flex cursor-pointer items-center gap-1">
                   <Image src="/icons/logo.svg" alt='logo' width={23} height={27}/>
@@ -48,7 +66,11 @@ const MobileNav = ()=>{
                 <SheetClose asChild>
                   <nav className="flex h-full flex-col gap-6 text-black-1 dark:text-white-1">
                   {sidebarLinks.map(({route,label,imgURL}) =>{
-                    const isActive = pathName === route || pathName.startsWith(`${route}/`);
+                    const fullRoute = `/${locale}${route}`;
+                    const isActive =
+                      route === ""
+                      ? pathName === `/${locale}` || pathName === `/${locale}/`
+                      : pathName === fullRoute || pathName.startsWith(`${fullRoute}/`);
                     return (
                       <SheetClose asChild key={route}><Link href={route} key={label} className={cn("flex gap-3 items-center py-4 max-lg:px-4 justify-start",{"bg-nav-focus border-r-4 border-orange-1": isActive})}>
                         <Image src={imgURL} alt={t(label)} width={24} height={24}/>

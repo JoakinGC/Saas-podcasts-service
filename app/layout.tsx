@@ -5,7 +5,7 @@ import ConvexClerkProvider  from '@/providers/ConvexClerkProvider';
 import AudioProvider        from '@/providers/AudioProvider';
 import ThemeProvider        from '@/providers/ThemeProvider';
 import { cookies } from 'next/headers';
-import { cn } from '@/lib/utils';   
+
 
 const manrope = Manrope({subsets: ['latin']});
 
