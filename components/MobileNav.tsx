@@ -81,8 +81,8 @@ const MobileNav = ()=>{
                   })}
                   </nav>
                 </SheetClose>
-                <SheetClose>
-                  <div className="mb-4">
+                <SheetClose asChild>
+                  <div className="mb-20">
                     <SignInOutButton/>
                   </div>
                 </SheetClose>
