@@ -9,7 +9,7 @@ import { useUser } from "@clerk/nextjs";
 import { useQuery } from "convex/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 
 const PosdcastDetails = (
@@ -21,9 +21,15 @@ const PosdcastDetails = (
     const t = useTranslations('PodcastDatil')
     const podcast = useQuery(api.podcasts.getPodcastById,{podcastId});
     const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType,{podcastId});
-    const isOwner = user?.id === podcast?.authorId
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     if(!similarPodcasts || !podcast)return <LoaderSpinner/>
+    
+    const isOwner = isClient && user?.id === podcast?.authorId;
     return(
        <section className="flex w-full flex-col">
             <header className="mt-9 flex items-center justify-between">
