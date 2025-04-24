@@ -34,14 +34,16 @@ const MobileNav = ()=>{
           </SheetTrigger>
             <SheetContent side="left"
             className="border-none bg-white-1 dark:bg-black-1">
-              <div className="flex  gap-16 items-center pb-10">
+              <div className="flex  gap-16 items-center">
                 <Link href="/" className="flex cursor-pointer items-center gap-1">
                   <Image src="/icons/logo.svg" alt='logo' width={23} height={27}/>
                   <h1 className="text-24 font-extrabold text-black-1 dark:text-white-1 ml-2">Podcast</h1>
                 </Link>
                 <ThemeToggle/>
-                <LanguageSwitcher/>
               </div>
+              <div className="flex flex-col items-center  pb-10">
+                            <LanguageSwitcher/>
+                          </div>
               <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
                 <SheetClose asChild>
                   <nav className="flex h-full flex-col gap-6 text-black-1 dark:text-white-1">
