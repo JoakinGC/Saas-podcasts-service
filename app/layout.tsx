@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import ConvexClerkProvider  from '@/providers/ConvexClerkProvider';
 import AudioProvider        from '@/providers/AudioProvider';
 import ThemeProvider        from '@/providers/ThemeProvider';
+import { cookies } from 'next/headers';
+import { cn } from '@/lib/utils';   
 
 const manrope = Manrope({subsets: ['latin']});
 
@@ -13,11 +15,22 @@ export const metadata: Metadata = {
   icons:{
     icon:'/icons/logo.svg'
   }
+
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
+
+  const cookieStore = cookies();
+  const themeCookie = cookieStore.get('theme')?.value as 'light' | 'dark' | undefined;
+
+  const initialTheme: 'light' | 'dark' = themeCookie ?? 'light';
   return (
-    <html lang="es">
+    <html
+      lang="es"
+      className={`${manrope.className} ${initialTheme}`}
+      style={{ colorScheme: initialTheme }}          
+                      
+    >
       <body className={manrope.className}>
         <ConvexClerkProvider>
           <AudioProvider>

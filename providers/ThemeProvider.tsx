@@ -7,7 +7,9 @@ const ThemeLightOrDarkProvider = ({children} :{children:ReactNode}) =>{
     return (
         <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="system"
+            enableSystem
+            themes={['light','dark']}
         >
             {children}
         </ThemeProvider>
