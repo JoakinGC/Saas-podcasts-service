@@ -18,7 +18,8 @@ const PodcastPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const { audio } = useAudio();
   const themes = useTheme();
-  const glassmorphismTheme = (themes.theme==="dark") ? "glassmorphism-black" : "glassmorphism-white";
+  const [glassmorphismTheme, setglassmorphismTheme] = useState("gla")
+  const percent = duration > 0 ? (currentTime / duration) * 100 : 0;
   const togglePlayPause = () => {
     if (audioRef.current?.paused) {
       audioRef.current?.play();
@@ -55,10 +56,6 @@ const PodcastPlayer = () => {
     }
   };
 
-  console.log(themes);
-  console.log(themes.theme==="dark");
-
-
   useEffect(() => {
     const updateCurrentTime = () => {
       if (audioRef.current) {
@@ -89,6 +86,11 @@ const PodcastPlayer = () => {
       setIsPlaying(true);
     }
   }, [audio]);
+
+  useEffect(() =>{
+    setglassmorphismTheme((themes.theme==="dark") ? "glassmorphism-black" : "glassmorphism-white");
+  },[themes])
+
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
       setDuration(audioRef.current.duration);
@@ -106,9 +108,9 @@ const PodcastPlayer = () => {
       })}
     >
       <Progress
-        value={(currentTime / duration) * 100}
+        value={percent}
         className="w-full"
-        max={duration}
+        max={duration || 1} 
       />
       <section className={`${glassmorphismTheme} flex h-[112px] w-full items-center justify-between px-4 max-md:justify-center max-md:gap-5 md:px-12`}>
         <audio

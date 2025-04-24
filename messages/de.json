@@ -1,0 +1,98 @@
+{
+  "Home": {
+    "title": "Beliebte Podcasts",
+    "description": "Dies ist eine Beispielseite mit Unterstützung für mehrere Sprachen."
+  },
+  "Navbar": {
+    "home": "Startseite",
+    "discover": "Entdecken",
+    "createPodcastNav": "Podcast erstellen",
+    "signIn": "Anmelden",
+    "logOut": "Abmelden"
+  },
+  "Discover": {
+    "search": "Suchergebnisse für: ",
+    "title": "Beliebte Podcasts entdecken"
+  },
+  "createPodcastPage": {
+    "title": "Podcast erstellen",
+    "titleLabel": "Titel",
+    "selectAIVoice": "KI-Stimme auswählen",
+    "placeholderSelectAIVoice": "KI-Stimme auswählen",
+    "descriptionForm": "Beschreibung",
+    "placeholderDescription": "Geben Sie eine kurze Beschreibung ein",
+    "submitting": "Wird gesendet",
+    "publish": "Podcast einreichen & veröffentlichen",
+    "titlePodcastCreate": "Podcast erstellt",
+    "ErrorCreatedPodcast": "Fehler beim Erstellen des Podcasts",
+    "PleaseGenerate": "Bitte generieren Sie Audio und Bild",
+    "titleRequired": "Der Titel ist erforderlich",
+    "descriptionRequired": "Die Beschreibung ist erforderlich"
+  },
+  "Profile": {
+    "title": "Podcaster-Profil",
+    "allPodcasts": "Alle Podcasts"
+  },
+  "PodcastDatil": {
+    "title": "Wird aktuell abgespielt",
+    "altImgHeadphones": "Kopfhörer",
+    "transcription": "Transkription",
+    "thumbnailPrompt": "Thumbnail-Aufforderung",
+    "similarPodcasts": "Ähnliche Podcasts"
+  },
+  "headerComponet": {
+    "seeAll": "Alle anzeigen",
+    "headerTitleCarrousel": "Fans wie du",
+    "hearderTitleTop": "Top Podcasts"
+  },
+  "emptyState": {
+    "try": "Versuchen Sie, Ihre Suche anzupassen, um das Gesuchte zu finden",
+    "discorverImg": "entdecken",
+    "emptyStateImg": "leer",
+    "notFoundTitle": "Keine Ergebnisse gefunden",
+    "emptyNotCreatedPodcast": "Sie haben noch keine Podcasts erstellt",
+    "buttonCreatedPodcast": "Podcast erstellen",
+    "titlePodcastNotFound": "Keine ähnlichen Podcasts gefunden",
+    "discoverMorePodcastButton": "Weitere Podcasts entdecken"
+  },
+  "GeneratePodcastComponent": {
+    "title": "KI-Eingabeaufforderung zur Generierung eines Podcasts",
+    "placeholderGenerateAudio": "Text eingeben, um Audio zu generieren",
+    "generating": "Generiert",
+    "generate": "Generieren"
+  },
+  "GenerateThumbnail": {
+    "titleSuccess": "Thumbnail erfolgreich generiert",
+    "errorGeneratingThubnail": "Fehler beim Generieren des Thumbnails",
+    "errorUploading": "Fehler beim Hochladen des Bildes",
+    "title": "Thumbnail mit KI generieren",
+    "uploadImage": "Benutzerdefiniertes Bild hochladen",
+    "promptGenerateThunbnail": "KI-Eingabeaufforderung für Thumbnail",
+    "placeholderGenerateThumbnail": "Text eingeben, um Thumbnail zu generieren",
+    "uploading": "Wird hochgeladen",
+    "generate": "Generieren",
+    "altImageUpload": "hochladen",
+    "clickUpload": "Zum Hochladen klicken",
+    "formatImg": "SVG, PNG, JPG oder GIF (max. 1080x1080px)",
+    "altThumbnailImg": "Thumbnail"
+  },
+  "profileCardComponent": {
+    "altImgPodcaster": "Podcaster",
+    "verifiedAltImg": "verifiziert",
+    "verified": "Verifizierter Creator",
+    "altImgHeadphones": "Kopfhörer",
+    "listeners": "monatliche Zuhörer",
+    "altRandomPlay": "zufällige Wiedergabe",
+    "playRandomPodcast": "Zufälligen Podcast abspielen"
+  },
+  "PodcastDetailPlayerComponent": {
+    "podcastDeleted": "Podcast gelöscht",
+    "errorDeletingPodcast": "Fehler beim Löschen des Podcasts",
+    "imgAltPodcast": "Podcast-Bild",
+    "altIconImage": "Caster-Symbol",
+    "buttonPlay": "Podcast abspielen",
+    "altImgDotsIcon": "Drei-Punkte-Symbol",
+    "deleteIconAltImage": "Löschen-Symbol",
+    "deleteButton": "Löschen"
+  }
+}

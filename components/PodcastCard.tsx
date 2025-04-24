@@ -1,5 +1,6 @@
 import { Id } from "@/convex/_generated/dataModel"
 import { PodcastCardProps } from "@/types"
+import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
@@ -9,10 +10,10 @@ const PodcastCard = ({imgUrl,title,description,podcastId}
     PodcastCardProps
 ) =>{
     const router = useRouter();
-
+    const locale = useLocale()
     const handleViews = () =>{
 
-        router.push(`/podcasts/${podcastId}`,{
+        router.push(`/${locale}/podcasts/${podcastId}`,{
             scroll:true
         })
     }

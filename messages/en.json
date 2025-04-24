@@ -1,0 +1,102 @@
+{
+  "Home": {
+    "title": "Trending Posdcast",
+    "description": "This is a sample page with support for multiple languages."
+  },
+  "Navbar": {
+    "home": "Home",
+    "discover": "Discover",
+    "createPodcastNav": "Create Podcast",
+    "signIn":"Sign In",
+    "logOut":"Log out"
+  },
+  
+  "Discover":{
+    "search":"Search result for: ",
+    "title":"Discover Trending Podcasts"
+  },
+  "createPodcastPage":{
+    "title":"Create Podcast",
+    "titleLabel":"Title",
+    "selectAIVoice":"Select AI Voice",
+    "placeholderSelectAIVoice":"Select AI Voice",
+    "descriptionForm":"Description",
+    "placeholderDescription":"Write a short podcast description",
+    "submitting":"Submitting",
+    "publish":"Submit & Publish Podcast",
+    "titlePodcastCreate":"Podcast created",
+    "ErrorCreatedPodcast":"Error created podcast",
+    "PleaseGenerate":"Please generate audio and image",
+    "titleRequired": "The title is required",
+    "descriptionRequired": "The description is required"
+  },
+
+  "Profile":{
+    "title":"Podcaster Profile",
+    "allPodcasts":"All Podcasts"
+  },
+  "PodcastDatil":{
+    "title":"Currenty Playing",
+    "altImgHeadphones":"headphone",
+    "transcription":"Transcription",
+    "thumbnailPrompt":"Thumnail Prompt",
+    "similarPodcasts":"Similar Podcasts"
+  },
+  "headerComponet":{
+    "seeAll":"See all",
+    "headerTitleCarrousel":"Fans Like You",
+    "hearderTitleTop":"Top Podcasts"
+  },
+  "emptyState":{
+    "try":"Try adjusting your search to find what you are looking fo",
+    "discorverImg":"discorver",
+    "emptyStateImg":"empty state",
+    "notFoundTitle":"No results Found",
+    "emptyNotCreatedPodcast":"You have not created any podcasts yet",
+    "buttonCreatedPodcast":"Create Podcast",
+    "titlePodcastNotFound":"No similar podcasts found",
+    "discoverMorePodcastButton":"Discover more podcasts" 
+  },
+
+  "GeneratePodcastComponent":{
+    "title":"AI Prompt to generate Podcast",
+    "placeholderGenerateAudio":"Provide text to generate audio",
+    "generating":"Generating",
+    "generate":"Generate"
+  },
+  "GenerateThumbnail":{
+    "titleSuccess":"Thumbnail generated successfully",
+    "errorGeneratingThubnail":"Error generating thumbnail",
+    "errorUploading":"Error uploading image",
+    "title":"Use AI to Generate thumbnail",
+    "uploadImage":"Upload custom image",
+    "promptGenerateThunbnail":"AI Prompt to generate Thunbnail",
+    "placeholderGenerateThumbnail":"Provide text to generate thumbnail",
+    "uploading":"Uploading",
+    "generate":"Generate",
+    "altImageUpload":"upload",
+    "clickUpload":"Click to upload",
+    "formatImg":"SVG , PNG , JPG, or GIF (max 1080x1080px)",
+    "altThumbnailImg":"thumbnail"
+  },
+
+  "profileCardComponent":{
+    "altImgPodcaster":"Podcaster",
+    "verifiedAltImg":"verified",
+    "verified":"Verified Creator",
+    "altImgHeadphones":"headphones",
+    "listeners":"monthly listeners",
+    "altRandomPlay":"random play",
+    "playRandomPodcast":"Play a random podcast"
+  },
+  "PodcastDetailPlayerComponent":{
+    "podcastDeleted":"Podcast deleted",
+    "errorDeletingPodcast":"Error deleting podcast",
+    "imgAltPodcast": "Podcast image",
+    "altIconImage":"Caster icon",
+    "buttonPlay":"Play podcast",
+    "altImgDotsIcon":"Three dots icon",
+    "deleteIconAltImage":"Delete icon",
+    "deleteButton":"Delete"
+  }
+}

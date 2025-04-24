@@ -42,7 +42,6 @@ export default function RootLayout({
             </section>
             <RigthSidebar/>
         </main>
-
         <PodcastPlayer/>
     </div>
   );

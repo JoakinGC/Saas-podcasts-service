@@ -13,12 +13,14 @@ import { useAction, useMutation } from 'convex/react';
 import { useUploadFiles } from '@xixixao/uploadstuff/react';
 import { api } from '@/convex/_generated/api';
 import {v4 as uuidv4} from 'uuid';
+import { useTranslations } from 'next-intl';
 
 const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, setImagePrompt}:
   GenerateThumbnailProps
 ) => {
   const [isAiThumbnail, setIsAiThumbnail] = useState(false);
   const [isImageLoading, setisImageLoading] = useState(false)
+  const t = useTranslations('GenerateThumbnail')
   const imageRef = useRef<HTMLInputElement>(null);
   const {toast} = useToast();
   const generateUploadUrl =  useMutation(api.files.generateUploadUrl);
@@ -41,12 +43,12 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
       setImage(imageUrl!);
       setisImageLoading(false);
       toast({
-        title:"Thumbnail generated successfully",
+        title:t('titleSuccess'),
       });
     } catch (error) {
       console.error(error);
       toast({
-        title:"Error generating thumbnail",
+        title:t('errorGeneratingThubnail'),
         variant: "destructive"
       });
     }
@@ -62,7 +64,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
     } catch (error) {
       console.error(error);
       toast({
-        title:"Error generating thumbnail",
+        title:t('errorGeneratingThubnail'),
         variant: "destructive"
       });
     }
@@ -84,7 +86,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
     } catch (error) {
       console.error(error);
       toast({
-        title:"Error uploading image",
+        title:t('errorUploading'),
         variant: "destructive"
       });
     }
@@ -101,7 +103,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
             'bg-white-5 dark:bg-black-6':isAiThumbnail
           })}
         >
-          <span className="text-black-1 dark:text-white-1">Use AI to Generate thumbnail</span>
+          <span className="text-black-1 dark:text-white-1">{t('title')}</span>
         </Button>
         <Button
           type="button"
@@ -111,7 +113,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
             'bg-white-5 dark:bg-black-6':!isAiThumbnail
           })}
         >
-          <span className='text-black-1 dark:text-white-1'>Upload custom image</span>
+          <span className='text-black-1 dark:text-white-1'>{t('uploadImage')}</span>
         </Button>
       </div>
 
@@ -119,11 +121,11 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
         <div className='flex flex-col gap-5'>
           <div className='mt-5 flex flex-col gap-2.5'>
             <Label className="text-16 font-bold text-black-1 dark:text-white-1">
-              AI Prompt to generate Thunbnail
+              {t('promptGenerateThunbnail')}
              </Label>
             <Textarea
               className="input-class font-light focus-visible:ring-offset-orange-1"
-              placeholder='Provide text to generate thumbnail'
+              placeholder={t('placeholderGenerateThumbnail')}
               rows={5}
               value={imagePrompt}
               onChange={(e) => setImagePrompt(e.target.value)}
@@ -136,13 +138,13 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
               >
                 {isImageLoading ? (
                   <>
-                    Uploading
+                    {t('uploading')}
                     <Loader  
                       size={20} 
                       className="animate-spin ml-2"/>
                   </>
                 ):(
-                  'Generate'
+                  <span>{t('generate')}</span>
                 )}
               </Button>
         </div>
@@ -159,12 +161,12 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
               <Image
                 src="/icons/upload-image.svg"
                 width={40}
-                alt='upload'
+                alt={t('altImageUpload')}
                 height={40}
               />
             ):(
               <div className="text-16 flex-center font-medium text-black-1 dark:text-white-1">
-                Uploading
+                {t('uploading')}
                 <Loader 
                   size={20} 
                   className="animate-spin ml-2"
@@ -173,9 +175,9 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
             )}
             <div className='flex flex-col items-center gap-1'>
               <h2 className='text-12 font-bold text-orange-1'>
-                Click to upload
+                {t('clickUpload')}
               </h2>
-            <p className='text-12 font-normal text-gray-1'>SVG , PNG , JPG, or GIF (max 1080x1080px)</p>
+            <p className='text-12 font-normal text-gray-1'>{t('formatImg')}</p>
             </div>
           </div>
       )}
@@ -186,7 +188,7 @@ const GenerateThumbnail = ({setImage, setImageStorageId, image, imagePrompt, set
             width={200}
             height={200}
             className="mt-5"
-            alt="thumbnail"
+            alt={t('altThumbnailImg')}
           />
         </div>
       )

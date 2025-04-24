@@ -11,6 +11,8 @@ import { PodcastDetailPlayerProps } from "@/types";
 import LoaderSpinner from "./LoaderSpinner";
 import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { useLocale } from "next-intl";
+import { useTranslations } from "use-intl";
 
 
 const PodcastDetailPlayer = ({
@@ -30,18 +32,20 @@ const PodcastDetailPlayer = ({
   const { toast } = useToast();
   const [isDeleting, setIsDeleting] = useState(false);
   const deletePodcast = useMutation(api.podcasts.deletePodcast);
+  const locale = useLocale();
+  const t = useTranslations("PodcastDetailPlayerComponent");
 
   const handleDelete = async () => {
     try {
       await deletePodcast({ podcastId, imageStorageId, audioStorageId });
       toast({
-        title: "Podcast deleted",
+        title: t('podcastDeleted'),
       });
-      router.push("/");
+      router.push(`/${locale}`);
     } catch (error) {
       console.error("Error deleting podcast", error);
       toast({
-        title: "Error deleting podcast",
+        title: t('errorDeletingPodcast'),
         variant: "destructive",
       });
     }
@@ -66,7 +70,7 @@ const PodcastDetailPlayer = ({
           src={imageUrl}
           width={250}
           height={250}
-          alt="Podcast image"
+          alt={t('imgAltPodcast')}
           className="aspect-square rounded-lg"
         />
         <div className="flex w-full flex-col gap-5 max-md:items-center md:gap-9">
@@ -77,14 +81,14 @@ const PodcastDetailPlayer = ({
             <figure
               className="flex cursor-pointer items-center gap-2"
               onClick={() => {
-                router.push(`/profile/${authorId}`);
+                router.push(`/${locale}/profile/${authorId}`);
               }}
             >
               <Image
                 src={authorImageUrl}
                 width={30}
                 height={30}
-                alt="Caster icon"
+                alt={t('altIconImage')}
                 className="size-[30px] rounded-full object-cover"
               />
               <h2 className="text-16 font-normal text-black-3 dark:text-white-3">{author}</h2>
@@ -101,7 +105,7 @@ const PodcastDetailPlayer = ({
               height={20}
               alt="random play"
             />{" "}
-            &nbsp; Play podcast
+            &nbsp; {t('buttonPlay')}
           </Button>
         </div>
       </div>
@@ -111,7 +115,7 @@ const PodcastDetailPlayer = ({
             src="/icons/three-dots.svg"
             width={20}
             height={30}
-            alt="Three dots icon"
+            alt={t('altImgDotsIcon')}
             className="cursor-pointer"
             onClick={() => setIsDeleting((prev) => !prev)}
           />
@@ -124,10 +128,10 @@ const PodcastDetailPlayer = ({
                 src="/icons/delete.svg"
                 width={16}
                 height={16}
-                alt="Delete icon"
+                alt={t('deleteIcon')}
                 className="invert dark:invert-0"
               />
-              <h2 className="text-16 font-normal text-black-1 dark:text-white-1">Delete</h2>
+              <h2 className="text-16 font-normal text-black-1 dark:text-white-1">{t('deleteButton')}</h2>
             </div>
           )}
         </div>

@@ -7,6 +7,7 @@ import LoaderSpinner from "@/components/LoaderSpinner";
 import PodcastCard from "@/components/PodcastCard";
 import ProfileCard from "@/components/ProfileCard";
 import { api } from "@/convex/_generated/api";
+import { useTranslations } from "next-intl";
 
 const ProfilePage = ({
   params,
@@ -21,13 +22,14 @@ const ProfilePage = ({
   const podcastsData= useQuery(api.podcasts.getPodcastByAuthorId, {
     authorId: params.profileId,
   });
+  const t = useTranslations('Profile');
 
   if (!user || !podcastsData) return <LoaderSpinner />;
 
   return (
     <section className="mt-9 flex flex-col">
       <h1 className="text-20 font-bold text-black-1 dark:text-white-1 max-md:text-center">
-        Podcaster Profile
+        {t('title')}
       </h1>
       <div className="mt-6 flex flex-col gap-6 max-md:items-center md:flex-row">
         <ProfileCard
@@ -37,7 +39,7 @@ const ProfilePage = ({
         />
       </div>
       <section className="mt-9 flex flex-col gap-5">
-        <h1 className="text-20 font-bold text-black-1 dark:text-white-1">All Podcasts</h1>
+        <h1 className="text-20 font-bold text-black-1 dark:text-white-1">{t('allPodcasts')}</h1>
         {podcastsData && podcastsData.podcasts.length > 0 ? (
           <div className="podcast_grid">
             {podcastsData?.podcasts
@@ -54,9 +56,9 @@ const ProfilePage = ({
           </div>
         ) : (
           <EmptyState
-            title="You have not created any podcasts yet"
+            title='emptyNotCreatedPodcast'
             buttonLink="/create-podcast"
-            buttonText="Create Podcast"
+            buttonText='buttonCreatedPodcast'
           />
         )}
       </section>

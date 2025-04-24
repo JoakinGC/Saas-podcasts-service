@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { AudioContextType, AudioProps } from "@/types";
 import { usePathname } from "next/navigation";
+import { stripLocale } from "@/lib/stripLocale";
 
 
 const AudioContext =  createContext<AudioContextType | undefined>(undefined);
@@ -12,7 +13,8 @@ const AudioProvider = ({children}:{children:React.ReactNode}) =>{
      const pathname = usePathname();
 
      useEffect(() =>{
-        if(pathname === '/create-podcast') setAudio(undefined);
+        const cleanLangPath = `${stripLocale(pathname)}`;
+        if(cleanLangPath === "/create-podcast") setAudio(undefined);
      },[pathname])
 
 
